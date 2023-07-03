@@ -363,3 +363,28 @@
   background: white;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
+
+.TopoNav-Fit-Within {
+  margin-left: -10px;
+  padding: 0px;
+  overflow: auto;
+}
+
+.TopoNav-Svg-Zoom1 {
+  width: 100%;
+  max-height: 80vh;
+  transition: width 0.3s ease-in-out;
+}
+
+.TopoNav-Svg-Zoom2 {
+  width: 200%;
+  height: 200%;
+  transition: width 0.3s ease-in-out;
+}
+
+.TopoNav-Svg-Zoom3 {
+  width: 300%;
+  height: 300%;
+  max-height: 70vh;
+  transition: width 0.3s ease-in-out;
+}

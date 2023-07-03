@@ -167,6 +167,16 @@ const Svg = ({
           }
           onMouseLeave={() => setPoblemIdHovered && setPoblemIdHovered(null)}
         >
+         <path
+            d={svg.path}
+            fill="none"
+            stroke="grey"
+            strokeOpacity="0"
+            pointerEvents="stroke"
+            strokeWidth={0.007 * scale * (thumb ? 4 : 1)}
+            strokeLinecap="round"
+          />
+
           <path
             d={svg.path}
             style={{ fill: "none", stroke: "#000000" }}

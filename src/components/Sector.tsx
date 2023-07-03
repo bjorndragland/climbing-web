@@ -9,6 +9,7 @@ import Leaflet from "./common/leaflet/leaflet";
 import { calculateDistance } from "./common/leaflet/distance-math";
 import Media from "./common/media/media";
 import Todo from "./common/todo/todo";
+import TopoNavModal from "./TopoNavModal"
 import {
   Stars,
   LockSymbol,
@@ -42,7 +43,7 @@ import { useRedirect } from "../utils/useRedirect";
 const SectorListItem = ({ problem, isClimbing }) => {
   const type = isClimbing
     ? problem.t.subType +
-      (problem.numPitches > 1 ? ", " + problem.numPitches + " pitches" : "")
+    (problem.numPitches > 1 ? ", " + problem.numPitches + " pitches" : "")
     : null;
   const ascents =
     problem.numTicks &&
@@ -388,34 +389,34 @@ const Sector = () => {
           {(data.areaAccessInfo ||
             data.accessInfo ||
             data.areaNoDogsAllowed) && (
-            <Table.Row warning verticalAlign="top">
-              <Table.Cell>
-                <Icon name="attention" /> Restrictions:
-              </Table.Cell>
-              <Table.Cell>
-                {data.areaNoDogsAllowed && (
-                  <Header as="h5" color="red" image>
-                    <Image
-                      src="/svg/no-animals.svg"
-                      alt="No dogs allowed"
-                      rounded
-                      size="mini"
-                    />
-                    <Header.Content>
-                      The access to our crags are at the mercy of the farmers
-                      who own the land.
-                      <Header.Subheader>
-                        Because of conflicts between dog-owners and farmers we
-                        ask you to not bring your dog to this specific crag.
-                      </Header.Subheader>
-                    </Header.Content>
-                  </Header>
-                )}
-                {data.areaAccessInfo && <p>{data.areaAccessInfo}</p>}
-                {data.accessInfo && <p>{data.accessInfo}</p>}
-              </Table.Cell>
-            </Table.Row>
-          )}
+              <Table.Row warning verticalAlign="top">
+                <Table.Cell>
+                  <Icon name="attention" /> Restrictions:
+                </Table.Cell>
+                <Table.Cell>
+                  {data.areaNoDogsAllowed && (
+                    <Header as="h5" color="red" image>
+                      <Image
+                        src="/svg/no-animals.svg"
+                        alt="No dogs allowed"
+                        rounded
+                        size="mini"
+                      />
+                      <Header.Content>
+                        The access to our crags are at the mercy of the farmers
+                        who own the land.
+                        <Header.Subheader>
+                          Because of conflicts between dog-owners and farmers we
+                          ask you to not bring your dog to this specific crag.
+                        </Header.Subheader>
+                      </Header.Content>
+                    </Header>
+                  )}
+                  {data.areaAccessInfo && <p>{data.areaAccessInfo}</p>}
+                  {data.accessInfo && <p>{data.accessInfo}</p>}
+                </Table.Cell>
+              </Table.Row>
+            )}
           {content}
           {data.comment && (
             <Table.Row verticalAlign="top">
@@ -513,6 +514,7 @@ const Sector = () => {
                   Parking (Google Maps)
                 </Label>
               )}
+              <TopoNavModal/>
             </Table.Cell>
           </Table.Row>
           <Table.Row verticalAlign="top">
